@@ -45,7 +45,41 @@ WorkMatch is a full-stack job board application that bridges job seekers and emp
 
 ---
 
-### 🔧 Clone the Repository
+## 🖼 Project Screenshots
+
+### 🏠 Home Page
+The landing page for all users.
+
+![Home Page](assets/screenshots/home.png)
+
+---
+
+### 🔍 Job Listings Page
+Shows all available jobs with search filters.
+
+![Job Listings](assets/screenshots/listingJobs.png)
+
+---
+
+### 📄 Job Details Page
+Detailed view of a specific job posting.
+
+![Job Details](assets/screenshots/jobDetails.png)
+
+---
+
+### 📝 Post a New Job (Employer)
+Form for employers to create job listings.
+
+![Post Job](assets/screenshots/postJobs.png)
+
+---
+
+### 📋 View Job Post Status (Employer)
+Employers can see who applied and manage job statuses.
+
+![View Post Job Status](assets/screenshots/viewPostJobStatus.png)
+
 
 ```bash
 git clone https://github.com/your-username/workmatch-job-board.git
@@ -56,3 +90,5 @@ cd workmatch-job-board
 
 ▶️ 5. Start the Server
 --node index.js or nodemon index.js (nodemon package must be global)
+
+
