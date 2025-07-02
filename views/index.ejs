@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkMatch - Find Your Dream Job</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar container">
+    <div class="logo">WorkMatch</div>
+    <nav class="nav-links">
+      <a href="/listing">Jobs</a>
+      <a href="/dashboard">dashboard</a>
+    </nav>
+    <div class="auth-buttons">
+      <a href="/logout" class="btn-outline">LogOut</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-text">
+      <h1>Find Your Dream Job</h1>
+      <p>Explore thousands of job openings tailored to your skills and goals.</p>
+      <form class="search-bar" method="get" action="/jobs">
+        <input type="text" placeholder="Job title or keyword" name="job_title" />
+        <input type="text" placeholder="Location" name="location" />
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section container">
+    <div class="feature-card">
+      <span class="icon">🔍</span>
+      <h3>Advanced Search</h3>
+      <p>Easily filter jobs by category, location, and job type.</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">📄</span>
+      <h3>Quick Applications</h3>
+      <p>Apply with just a few clicks and track your status in your dashboard.</p>
+    </div>
+    <div class="feature-card">
+      <span class="icon">💼</span>
+      <h3>Top Companies</h3>
+      <p>Find opportunities from trusted companies and startups worldwide.</p>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-columns">
+      <div>
+        <h4>WorkMatch</h4>
+        <p>Smart platform connecting job seekers and employers.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Post a Job</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>support@workmatch.com<br />+91 98765 43210</p>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2025 WorkMatch. All rights reserved.</p>
+  </footer>
+</body>
+</html>

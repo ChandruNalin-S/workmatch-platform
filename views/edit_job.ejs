@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Job - WorkMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/edit_job.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">WorkMatch</div>
+    <nav class="nav-links">
+      <a href="/home">Home</a>
+      <a href="/dashboard">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="edit-container">
+    <form class="edit-form" action="/job-post-edit/<%= job.id %>" method="POST">
+      <h2>Update Job Details</h2>
+
+      <div class="form-group">
+        <label for="title">Job Title</label>
+        <input type="text" id="title" name="title" value="<%= job.title %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" value="<%= job.company %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" value="<%= job.location %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="salary">Salary (₹ per month)</label>
+        <input type="number" id="salary" name="salary" value="<%= job.salary %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="job_type">Job Type</label>
+        <select name="job_type" id="job_type" required>
+          <option value="Full-Time" <%= job.job_type === "Full-Time" ? "selected" : "" %>>Full-Time</option>
+          <option value="Part-Time" <%= job.job_type === "Part-Time" ? "selected" : "" %>>Part-Time</option>
+          <option value="Remote" <%= job.job_type === "Remote" ? "selected" : "" %>>Remote</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="job_category">Category</label>
+        <input type="text" id="job_category" name="job_category" value="<%= job.job_category %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Job Description</label>
+        <textarea id="description" name="description" rows="6" required><%= job.description %></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Update Job</button>
+    </form>
+  </main>
+</body>
+</html>

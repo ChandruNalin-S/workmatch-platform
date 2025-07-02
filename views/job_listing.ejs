@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkMatch - Job Listings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/job_listing.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">WorkMatch</div>
+    <nav class="nav-links">
+      <a href="/home">Home</a>
+      <a href="/dashboard">dashboard</a>
+    </nav>
+  </header>
+
+  <main class="listings-page container">
+    <aside class="sidebar">
+      <form id="filter-form" method="GET" action="/filter-jobs">
+        <h3>Filters</h3>
+
+        <label>Location
+          <input type="text" name="location" placeholder="e.g. Chennai">
+        </label>
+
+        <label>Category
+          <select name="category">
+            <option value="">All</option>
+            <option value="Software">Software</option>
+            <option value="Design">Design</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+        </label>
+
+        <label>Job Type
+          <select name="type">
+            <option value="">All</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Remote">Remote</option>
+          </select>
+        </label>
+
+        <button type="submit" class="btn-primary">Apply Filters</button>
+      </form>
+    </aside>
+
+
+    <section class="job-results">
+      <h2>Search Results</h2>
+      <% if(locals.job_details && job_details.length > 0 ) { %>
+
+        <%job_details.forEach((job)=>{ %>
+          <div class="job-card">
+            <div class="job-header">
+              <h3><%= job.title %></h3>
+              <span class="tag <%= job.job_type.toLowerCase().replace(' ', '') %>">
+                <%= job.job_type %>
+              </span>
+            </div>
+            <p>Company: <%= job.company %></p>
+            <p>Location: <%= job.location %></p>
+            <p>Salary: ₹<%= job.salary %></p>
+            <a href="/job_details/<%=job.id%>" class="btn-outline">Apply</a>
+          </div>
+        <%});%> 
+       <% } else { %>
+          <div class="no-jobs">
+            <h3>No jobs available right now</h3>
+            <p>Please check back later or try refining your search.</p>
+          </div>
+       <% } %>
+
+      <!-- More job cards dynamically loaded here -->
+    </section>
+  </main>
+</body>
+</html>

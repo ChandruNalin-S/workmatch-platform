@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkMatch - Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+  <div class="register-container">
+    <form class="register-form" action="/register" method="post" >
+      <h2>Create Account</h2>
+      <p>Select your role to get started</p>
+
+      <div class="role-toggle">
+        <input type="radio" name="role" id="seeker" value="seeker" checked>
+        <label for="seeker">Job Seeker</label>
+
+        <input type="radio" name="role" id="employer" value="employer">
+        <label for="employer">Employer</label>
+    </div>
+
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password" required>
+
+      <% if (locals.errorMessage) { %>
+        <p class="error-message"><%= errorMessage %></p>
+      <% } %>
+
+      <button type="submit" class="btn-primary">Sign Up</button>
+
+      <p class="login-link">Already have an account? <a href="/">Log in</a></p>
+    </form>
+  </div>
+</body>
+</html>

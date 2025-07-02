@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post a Job - WorkMatch</title>
+  <link rel="stylesheet" href="/css/job_post_pages.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">WorkMatch</div>
+    <nav class="nav-links">
+      <a href="/home">Home</a>
+      <a href="/dashboard">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="post-job-container">
+    <form class="post-job-form" action="/post-job" method="post" >
+      <h2>Post a New Job</h2>
+
+      <label for="title">Job Title</label>
+      <input type="text" id="title" name="title" placeholder="e.g. Backend Developer" required>
+
+      <label for="description">Job Description</label>
+      <textarea id="description" name="description" rows="6" placeholder="Describe the job role, responsibilities, qualifications..." required></textarea>
+
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" placeholder="Company name" required>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="e.g. Remote / Chennai" required>
+
+      <label for="salary">Salary Range (INR)</label>
+      <input type="text" id="salary" name="salary" placeholder="e.g. ₹6L - ₹12L PA" required>
+
+      <label for="category">Job Category</label>
+      <select id="category" name="job_category" required>
+        <option value="">Select job category</option>
+        <option value="software">Software</option>
+        <option value="design">Design</option>
+        <option value="marketing">Marketing</option>
+        <option value="sales">Sales</option>
+        <option value="finance">Finance</option>
+        <option value="education">Education</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="construction">Construction</option>
+      </select>
+
+
+      <label for="type">Job Type</label>
+      <select id="type" name="type" required>
+        <option value="">Select job type</option>
+        <option value="full-time">Full-time</option>
+        <option value="part-time">Part-time</option>
+        <option value="remote">Remote</option>
+        <option value="internship">Internship</option>
+      </select>
+
+      <button type="submit" class="btn-primary">Post Job</button>
+    </form>
+  </main>
+</body>
+</html>

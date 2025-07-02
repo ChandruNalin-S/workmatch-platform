@@ -1,0 +1,134 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #1d4ed8, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.register-container {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.register-form h2 {
+  font-size: 1.75rem;
+  color: #1d4ed8;
+  margin-bottom: 0.25rem;
+}
+
+.register-form p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.register-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+.role-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.role-toggle input[type="radio"] {
+  display: none;
+}
+
+.role-toggle label {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem;
+  border: 2px solid #1d4ed8;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #1d4ed8;
+  transition: background 0.3s, color 0.3s;
+  margin: 0 0.25rem;
+}
+
+.role-toggle input[type="radio"]:checked + label {
+  background-color: #1d4ed8;
+  color: white;
+}
+
+.terms {
+  font-size: 0.9rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #1d4ed8;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.login-link a {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin: 15px 0;
+  font-weight: 600;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

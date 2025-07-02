@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - WorkMatch</title>
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .applications-section {
+      padding: 2rem;
+    }
+
+    .application-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .application-card {
+      background-color: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .app-info h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1d4ed8;
+      margin-bottom: 0.4rem;
+    }
+
+    .app-info p {
+      margin: 0.2rem 0;
+      font-size: 0.95rem;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .app-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .resume-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: #2563eb;
+      color: white;
+      font-size: 0.875rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      max-width: 100%;
+      width: fit-content;
+      transition: background 0.2s;
+    }
+
+    .resume-download:hover {
+      background-color: #1e40af;
+    }
+
+    .job-status {
+      font-size: 0.85rem;
+      background: #e5e7eb;
+      color: #111827;
+      padding: 0.35rem 0.7rem;
+      border-radius: 0.4rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .application-card {
+        padding: 1rem;
+      }
+
+      .app-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .resume-download {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">WorkMatch</div>
+    <nav class="nav-links">
+      <a href="/home">Home</a>
+      <% if (locals.role === "seeker") { %>
+        <a href="/listing">Browse Jobs</a>
+      <% } %>
+    </nav>
+  </header>
+
+  <main class="dashboard-container">
+    <aside class="sidebar">
+      <h3>Dashboard</h3>
+      <ul>
+        <% if (locals.role === "seeker") { %>
+          <li><a href="#seeker">Applied Jobs</a></li>
+        <% } else { %>
+          <li><a href="#" onclick="showSection('post-jobs')">Post Jobs</a></li>
+          <li><a href="#" onclick="showSection('applications')">Jobs Status</a></li>
+        <% } %>
+      </ul>
+    </aside>
+
+    <section class="dashboard-content">
+      <% if (locals.role === "seeker") { %>
+        <div class="section" id="seeker">
+          <h2>My Applications</h2>
+          <% if (locals.jobs && jobs.length > 0) { %>
+            <% jobs.forEach((job) => { %>
+              <div class="card">
+                <h3>Role: <%= job.title %></h3>
+                <p>Company: <%= job.company %></p>
+                <p>Location: <%= job.location %></p>
+                <p>Status: <span class="status applied">Applied</span></p>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <div class="no-applications">
+              <h3>No Applications Yet</h3>
+              <p>You haven’t applied to any jobs yet. Explore opportunities and start applying now!</p>
+              <a href="/listing" class="btn-primary">Browse Jobs</a>
+            </div>
+          <% } %>
+        </div>
+      <% } else { %>
+
+        <!-- Employer View -->
+        <div class="section" id="post-jobs-section">
+          <div class="employer-header">
+            <h2>Post Jobs</h2>
+            <a href="/post-job" class="btn-primary">➕ Post a New Job</a>
+          </div>
+
+          <div class="job-container">
+            <% if (locals.jobPost && jobPost.length > 0) { %>
+              <% jobPost.forEach((job) => { %>
+                <div class="job-card">
+                  <div class="job-card-top">
+                    <div class="job-info">
+                      <h3 class="job-title"><%= job.title %></h3>
+                      <p class="job-meta">
+                        <span><strong>Company:</strong> <%= job.company %></span> |
+                        <span><strong>Location:</strong> <%= job.location %></span> |
+                        <span><strong>Category:</strong> <%= job.job_category %></span>
+                      </p>
+                    </div>
+                    <span class="badge job-type"><%= job.job_type %></span>
+                  </div>
+
+                  <div class="job-description">
+                    <p><strong>Description:</strong> <%= job.description %></p>
+                  </div>
+
+                  <div class="job-card-bottom">
+                    <span class="job-salary">₹<%= job.salary %>/month</span>
+                    <div class="action-buttons">
+                      <a href="/job-post-edit/<%= job.id %>" class="btn edit">✏️ Edit</a>
+                      <a href="/job-delete/<%= job.id %>" class="btn delete">🗑️ Delete</a>
+                    </div>
+                  </div>
+                </div>
+              <% }) %>
+            <% } else { %>
+              <div class="no-job-posts">
+                <h3>No Jobs Posted Yet</h3>
+                <p>You haven’t posted any jobs yet.<br />Start hiring the right talent today!</p>
+              </div>
+            <% } %>
+          </div>
+        </div>
+
+        <!-- Applications Section -->
+        <section class="applications-section" id="applications-section" style="display: none;">
+          <h2>Job Applications</h2>
+          <% if (locals.applications && applications.length > 0) { %>
+            <div class="application-list">
+              <% applications.forEach(app => { %>
+                <div class="application-card">
+                  <div class="app-info">
+                    <h3><%= app.title %></h3>
+                    <p><strong>Location:</strong> <%= app.location %></p>
+                    <p><strong>Applicant Cover Letter:</strong> <%= app.cover_letter %></p>
+                    <p><strong>Applied At:</strong> <%= app.applied_at.toLocaleString() %></p>
+                  </div>
+                  <div class="app-actions">
+                    <a class="resume-download" href="/download?userid=<%= app.userid %>&jobid=<%= app.jobid %>">
+                      📄 <%= app.resume_filename %>
+                    </a>
+                    <span class="job-status">Status: <strong>Applied</strong></span>
+                  </div>
+                </div>
+              <% }) %>
+            </div>
+          <% } else { %>
+            <p>No applications received yet.</p>
+          <% } %>
+        </section>
+      <% } %>
+    </section>
+  </main>
+
+  <script>
+    function showSection(section) {
+      const postJobs = document.getElementById('post-jobs-section');
+      const apps = document.getElementById('applications-section');
+
+      if (section === 'applications') {
+        postJobs.style.display = 'none';
+        apps.style.display = 'block';
+      } else {
+        postJobs.style.display = 'block';
+        apps.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

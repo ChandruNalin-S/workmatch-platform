@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply to Job - WorkMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/apply_job.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">WorkMatch</div>
+    <nav class="nav-links">
+      <a href="/home">Home</a>
+      <a href="/jobs">Jobs</a>
+      <a href="/dashboard">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="apply-job-container">
+    <form class="apply-job-form" action="/jobs/apply/<%= locals.job_id%>" method="POST" enctype="multipart/form-data">
+      <h2>Apply for: <span class="job-title"><%= locals.title %></span></h2>
+
+      <div class="form-group">
+        <label for="cover_letter">Cover Letter</label>
+        <textarea id="cover_letter" name="cover_letter" rows="6" placeholder="Explain why you're a great fit..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="resume">Upload Resume</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
+      </div>
+
+      <button type="submit" class="btn-primary">Submit Application</button>
+    </form>
+  </main>
+</body>
+</html>

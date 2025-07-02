@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkMatch - Job Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/job_details.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">WorkMatch</div>
+    <nav class="nav-links">
+      <a href="/home">Home</a>
+      <a href="/listing">Jobs</a>
+      <a href="/dashboard">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="container job-detail">
+    <%if(locals.job_details) { %>
+    <section class="job-info">
+      <h1 class="job-title"><%=job_details.title%></h1>
+      <p class="company-name">@<%= job_details.company %> • <%= job_details.location %></p>
+
+      <div class="job-tags">
+        <span class="tag <%= job_details.job_type.toLowerCase().replace(' ', '') %>">
+                <%= job_details.job_type %>
+        </span>
+        <span class="tag salary">₹<%= job_details.salary%></span>
+      </div>
+
+      <div class="job-description">
+        <h3>Job Description</h3>
+        <p><%= job_details.description %>.</p>
+      </div>
+
+      <div class="job-actions">
+        <a href="/apply-job/<%= job_details.id%>" class="btn-primary">Apply Now</a>
+      </div>
+    </section>
+    <%}%> 
+
+   <% if(locals.details && locals.job_details){ %>
+    <aside class="company-box">
+      <h3>Company Info</h3>
+      <p><strong><%= job_details.company %></strong></p>
+      <p>Location: <%= job_details.location %> </p>
+      <p>Email: <%= details.email_id %>  </p>
+    </aside>
+   <% } %>
+  </main>
+</body>
+</html>
