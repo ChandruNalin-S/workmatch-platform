@@ -50,35 +50,35 @@ WorkMatch is a full-stack job board application that bridges job seekers and emp
 ### 🏠 Home Page
 The landing page for all users.
 
-![Home Page](assets/screenshots/home.png)
+![Home Page](screenshots/home.png)
 
 ---
 
 ### 🔍 Job Listings Page
 Shows all available jobs with search filters.
 
-![Job Listings](assets/screenshots/listingJobs.png)
+![Job Listings](screenshots/listingJobs.png)
 
 ---
 
 ### 📄 Job Details Page
 Detailed view of a specific job posting.
 
-![Job Details](assets/screenshots/jobDetails.png)
+![Job Details](screenshots/jobDetails.png)
 
 ---
 
 ### 📝 Post a New Job (Employer)
 Form for employers to create job listings.
 
-![Post Job](assets/screenshots/postJobs.png)
+![Post Job](screenshots/postJobs.png)
 
 ---
 
 ### 📋 View Job Post Status (Employer)
 Employers can see who applied and manage job statuses.
 
-![View Post Job Status](assets/screenshots/viewPostJobStatus.png)
+![View Post Job Status](screenshots/viewPostJobStatus.png)
 
 
 ```bash
