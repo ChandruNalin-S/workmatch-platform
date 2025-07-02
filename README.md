@@ -56,19 +56,3 @@ cd workmatch-job-board
 
 ▶️ 5. Start the Server
 --node index.js or nodemon index.js (nodemon package must be global)
-
-📸 Screenshots
-### 👨‍💼 Dashboard View
-![Screenshot 2025-07-02 132245](https://github.com/user-attachments/assets/0a829353-6c5a-4f74-b82f-1a7786250d7d)
-
-### 🔍 Job Listings & Search
-![Screenshot 2025-07-02 132300](https://github.com/user-attachments/assets/d13e0978-211a-4b8c-8871-962e539759fe)
-
-### 📄 Job Description Page
-![Screenshot 2025-07-02 132312](https://github.com/user-attachments/assets/5cfa7396-a9f1-49d1-9cc9-bdafaf835f7b)
-
-### 📝 Post a New Job
-![Screenshot 2025-07-02 132458](https://github.com/user-attachments/assets/4dd753e7-4168-486b-90ce-4f128601935f)
-
-### 📥 Applicant View for Employers
-![Screenshot 2025-07-02 132507](https://github.com/user-attachments/assets/d2258646-6f8d-411b-a187-78f671971e83)
